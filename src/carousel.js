@@ -642,7 +642,7 @@ const Carousel = React.createClass({
     var self = this,
       slideWidth,
       slidesToScroll,
-      firstSlide,
+      tallestSlide,
       frame,
       frameWidth,
       frameHeight,
@@ -650,12 +650,21 @@ const Carousel = React.createClass({
 
     slidesToScroll = props.slidesToScroll;
     frame = this.refs.frame;
-    firstSlide = frame.childNodes[0].childNodes[0];
-    if (firstSlide) {
-      firstSlide.style.height = 'auto';
+    let indexOfTallestSlide = 0;
+    let maxHeight = 0;
+    const listItems = frame.childNodes[0].childNodes;
+    listItems.forEach((item, index) => {
+      let itemHeight = item.offsetHeight;
+      if (maxHeight < itemHeight) {
+        indexOfTallestSlide = index;
+      }
+    })
+    tallestSlide = listItems[indexOfTallestSlide];
+    if (tallestSlide) {
+      tallestSlide.style.height = 'auto';
       slideHeight = this.props.vertical ?
-        firstSlide.offsetHeight * props.slidesToShow :
-        firstSlide.offsetHeight;
+        tallestSlide.offsetHeight * props.slidesToShow :
+        tallestSlide.offsetHeight;
     } else {
       slideHeight = 100;
     }
