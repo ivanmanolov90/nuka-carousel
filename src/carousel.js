@@ -655,7 +655,7 @@ const Carousel = React.createClass({
     const listItems = frame.childNodes[0].childNodes;
     listItems.forEach((item, index) => {
       let itemHeight = item.offsetHeight;
-      if (maxHeight < item) {
+      if (maxHeight < itemHeight) {
         indexOfTallestSlide = index;
       }
     })
