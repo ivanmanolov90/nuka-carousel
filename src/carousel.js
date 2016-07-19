@@ -650,7 +650,7 @@ const Carousel = React.createClass({
     slidesToScroll = props.slidesToScroll;
     frame = this.refs.frame;
     var maxHeight = 0;
-    var listItems = frame.childNodes[0].childNodes;
+    var listItems = Array.prototype.slice.call(frame.childNodes[0].childNodes);
     listItems.forEach(function (item, index) {
       var elements = item.childNodes[0].childNodes[0];
 
