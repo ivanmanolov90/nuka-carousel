@@ -728,7 +728,7 @@ const Carousel = React.createClass({
       margin: this.props.vertical ? (this.props.cellSpacing / 2) * -1 + 'px 0px'
                                   : '0px ' + (this.props.cellSpacing / 2) * -1 + 'px',
       padding: 0,
-      height: this.props.vertical ? listWidth + spacingOffset : this.state.slideHeight,
+      height: this.props.vertical ? listWidth + spacingOffset : 'auto',
       width: this.props.vertical ? 'auto' : listWidth + spacingOffset,
       cursor: this.state.dragging === true ? 'pointer' : 'inherit',
       boxSizing: 'border-box',
